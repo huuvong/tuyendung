@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-flat">
+  <div class="panel-heading">
+
+
+    <div class="col-md-9">
+          <h2 class="panel-title">Vị trí công việc</h2>
+    </div>
+    <div class="col-md-3">
+      <%= link_to 'Tạo mới', new_admin_vitricongviec_path , class: 'btn btn-primary btn-lg', id: 'new'%>
+    </div>
+  </div>
+  <table class="table datatable-basic table-bordered">
+    <thead>
+    <tr>
+      <th>Mã vị trí CV</th>
+      <th>Tên vị trí CV</th>
+      <th class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @vitricongviecs.each do |vitricongviec| %>
+    <tr>
+      <td></td>
+      <td><%= vitricongviec.tenvitri %></td>
+      <td class="text-center">
+        <ul class="icons-list">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-menu9"></i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+<!--              <li><%#= link_to 'Show', [:admin, vitricongviec] %></li>-->
+              <li><%= link_to 'Edit', edit_admin_vitricongviec_path(vitricongviec) %></li>
+              <li><%= link_to 'Destroy', [:admin, vitricongviec], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

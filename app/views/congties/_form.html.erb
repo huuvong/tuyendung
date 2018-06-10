@@ -1,0 +1,22 @@
+<%= form_with(model: congty, local: true) do |form| %>
+  <% if congty.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(congty.errors.count, "error") %> prohibited this congty from being saved:</h2>
+
+      <ul>
+      <% congty.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :tencongty %>
+    <%= form.text_field :tencongty, id: :congty_tencongty %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

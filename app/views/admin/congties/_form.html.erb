@@ -1,0 +1,24 @@
+<%= form_with(model: [:admin, congty], local: true) do |form| %>
+  <% if congty.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(congty.errors.count, "error") %> prohibited this congty from being saved:</h2>
+
+      <ul>
+      <% congty.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="content-group">
+    <div class="form-group">
+      <%= form.label :tencongty, "Tên công ty", class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+      <%= form.text_field :tencongty, id: :congty_tencongty, class: "form-control" %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="actions text-right">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<%= form_with(model: [:admin, @vitricongviec], local: true) do |form| %>
+  <% if vitricongviec.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vitricongviec.errors.count, "error") %> prohibited this vitricongviec from being saved:</h2>
+
+      <ul>
+      <% vitricongviec.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="content-group">
+    <div class="field">
+      <%= form.label :tenvitri , "Tên vị trí",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :tenvitri, id: :vitricongviec_tenvitri, class: "form-control" %>
+      </div>
+
+    </div>
+  </fieldset>
+  <div class="actions text-right">
+    <%= form.submit 'Submit', class: 'btn btn-primary'%>
+  </div>
+<% end %>

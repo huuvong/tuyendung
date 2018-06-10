@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Vitricongviecs</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tenvitri</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vitricongviecs.each do |vitricongviec| %>
+      <tr>
+        <td><%= vitricongviec.tenvitri %></td>
+        <td><%= link_to 'Show', vitricongviec %></td>
+        <td><%= link_to 'Edit', edit_vitricongviec_path(vitricongviec) %></td>
+        <td><%= link_to 'Destroy', vitricongviec, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vitricongviec', new_vitricongviec_path %>

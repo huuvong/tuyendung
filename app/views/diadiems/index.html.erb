@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Diadiems</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tendiadiem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diadiems.each do |diadiem| %>
+      <tr>
+        <td><%= diadiem.tendiadiem %></td>
+        <td><%= link_to 'Show', diadiem %></td>
+        <td><%= link_to 'Edit', edit_diadiem_path(diadiem) %></td>
+        <td><%= link_to 'Destroy', diadiem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diadiem', new_diadiem_path %>

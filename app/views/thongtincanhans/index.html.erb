@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Thongtincanhans</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Thongtincongviec</th>
+      <th>Hovaten</th>
+      <th>Sodienthoai</th>
+      <th>Email</th>
+      <th>Vitricongviec</th>
+      <th>Filedinhkem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thongtincanhans.each do |thongtincanhan| %>
+      <tr>
+        <td><%= thongtincanhan.thongtincongviec.tencongviec %></td>
+        <td><%= thongtincanhan.hovaten %></td>
+        <td><%= thongtincanhan.sodienthoai %></td>
+        <td><%= thongtincanhan.email %></td>
+        <td><%= thongtincanhan.vitricongviec.tenvitri %></td>
+        <td><%= thongtincanhan.filedinhkem %></td>
+        <td><%= link_to 'Show', thongtincanhan %></td>
+        <td><%= link_to 'Edit', edit_thongtincanhan_path(thongtincanhan) %></td>
+        <td><%= link_to 'Destroy', thongtincanhan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Thongtincanhan', new_thongtincanhan_path %>

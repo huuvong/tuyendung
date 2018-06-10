@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Thongtincongviecs</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tencongviec</th>
+      <th>Congty</th>
+      <th>Vitricongviec</th>
+      <th>Diadiem</th>
+      <th>Sohoso</th>
+      <th>Mavitri</th>
+      <th>Thoihannophoso</th>
+      <th>Thongtinvitri</th>
+      <th>Mota</th>
+      <th>Yeucau</th>
+      <th>Chedoluong</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thongtincongviecs.each do |thongtincongviec| %>
+      <tr>
+        <td><%= thongtincongviec.tencongviec %></td>
+        <td><%= thongtincongviec.congty.tencongty %></td>
+        <td><%= thongtincongviec.vitricongviec_id %></td>
+        <td><%= thongtincongviec.diadiem_id %></td>
+        <td><%= thongtincongviec.sohoso %></td>
+        <td><%= thongtincongviec.mavitri %></td>
+        <td><%= thongtincongviec.thoihannophoso %></td>
+        <td><%= thongtincongviec.thongtinvitri %></td>
+        <td><%= thongtincongviec.mota %></td>
+        <td><%= thongtincongviec.yeucau %></td>
+        <td><%= thongtincongviec.chedoluong %></td>
+        <td><%= link_to 'Show', [:admin, thongtincongviec] %></td>
+        <td><%= link_to 'Edit', edit_admin_thongtincongviec_path(thongtincongviec) %></td>
+        <td><%= link_to 'Destroy', [:admin, thongtincongviec], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= collection_select(:thongtincongviec, :congty_id, Congty.all, :id, :tencongty, promt: true) %>
+<br>
+
+<%= link_to 'New Thongtincongviec', new_admin_thongtincongviec_path %>

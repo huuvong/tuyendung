@@ -1,0 +1,22 @@
+<%= form_with(model: diadiem, local: true) do |form| %>
+  <% if diadiem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diadiem.errors.count, "error") %> prohibited this diadiem from being saved:</h2>
+
+      <ul>
+      <% diadiem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tendiadiem %>
+    <%= form.text_field :tendiadiem, id: :diadiem_tendiadiem %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

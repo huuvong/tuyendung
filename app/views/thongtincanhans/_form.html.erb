@@ -1,0 +1,47 @@
+<%= form_with(model: thongtincanhan, local: true) do |form| %>
+  <% if thongtincanhan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(thongtincanhan.errors.count, "error") %> prohibited this thongtincanhan from being saved:</h2>
+
+      <ul>
+      <% thongtincanhan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :thongtincongviec_id %>
+    <%= form.collection_select(:thongtincongviec_id, Thongtincongviec.all, :id, :tencongviec, promt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hovaten %>
+    <%= form.text_field :hovaten, id: :thongtincanhan_hovaten %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sodienthoai %>
+    <%= form.text_field :sodienthoai, id: :thongtincanhan_sodienthoai %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :thongtincanhan_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vitricongviec_id %>
+     <%= form.collection_select(:vitricongviec_id, Vitricongviec.all, :id, :tenvitri, promt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :filedinhkem %>
+    <%= form.text_field :filedinhkem, id: :thongtincanhan_filedinhkem %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,77 @@
+<%= form_with(model: thongtincongviec, local: true) do |form| %>
+  <% if thongtincongviec.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(thongtincongviec.errors.count, "error") %> prohibited this thongtincongviec from being saved:</h2>
+
+      <ul>
+      <% thongtincongviec.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.label :tencongviec %>
+    
+
+
+    <%= form.text_field :tencongviec, id: :thongtincongviec_tencongviec %>
+  </div>
+
+  <div class="field">
+    <%= form.label :congty_id %>
+     <%= form.collection_select(:congty_id, Congty.all, :id, :tencongty, promt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vitricongviec_id %>
+       <%= form.collection_select(:vitricongviec_id, Vitricongviec.all, :id, :tenvitri, promt: true) %>
+ 
+  </div>
+
+  <div class="field">
+    <%= form.label :diadiem_id %>
+     <%= form.collection_select(:diadiem_id, Diadiem.all, :id, :tendiadiem, promt: true) %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :sohoso %>
+    <%= form.text_field :sohoso, id: :thongtincongviec_sohoso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mavitri %>
+    <%= form.text_field :mavitri, id: :thongtincongviec_mavitri %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thoihannophoso %>
+    <%= form.date_select :thoihannophoso, id: :thongtincongviec_thoihannophoso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thongtinvitri %>
+    <%= form.text_field :thongtinvitri, id: :thongtincongviec_thongtinvitri %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mota %>
+    <%= form.text_field :mota, id: :thongtincongviec_mota %>
+  </div>
+
+  <div class="field">
+    <%= form.label :yeucau %>
+    <%= form.text_field :yeucau, id: :thongtincongviec_yeucau %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chedoluong %>
+    <%= form.text_field :chedoluong, id: :thongtincongviec_chedoluong %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

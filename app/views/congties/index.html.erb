@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Congties</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tencongty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @congties.each do |congty| %>
+      <tr>
+        <td><%= congty.tencongty %></td>
+        <td><%= link_to 'Show', congty %></td>
+        <td><%= link_to 'Edit', edit_congty_path(congty) %></td>
+        <td><%= link_to 'Destroy', congty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Congty', new_congty_path %>

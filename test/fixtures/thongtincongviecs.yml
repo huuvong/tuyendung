@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tencongviec: MyString
+  congty_id: 1
+  vitricongviec_id: 1
+  diadiem_id: 1
+  sohoso: MyString
+  mavitri: MyString
+  thoihannophoso: 2018-04-25
+  thongtinvitri: MyString
+  mota: MyString
+  yeucau: MyString
+  chedoluong: MyString
+
+two:
+  tencongviec: MyString
+  congty_id: 1
+  vitricongviec_id: 1
+  diadiem_id: 1
+  sohoso: MyString
+  mavitri: MyString
+  thoihannophoso: 2018-04-25
+  thongtinvitri: MyString
+  mota: MyString
+  yeucau: MyString
+  chedoluong: MyString

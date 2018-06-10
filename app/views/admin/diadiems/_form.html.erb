@@ -1,0 +1,24 @@
+<%= form_with(model: [:admin, diadiem], local: true) do |form| %>
+  <% if diadiem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diadiem.errors.count, "error") %> prohibited this diadiem from being saved:</h2>
+
+      <ul>
+      <% diadiem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="content-group">
+    <div class="form-group">
+      <%= form.label :tendiadiem, "Tên địa điểm", class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :tendiadiem, id: :diadiem_tendiadiem, class: "form-control" %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="actions text-right">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

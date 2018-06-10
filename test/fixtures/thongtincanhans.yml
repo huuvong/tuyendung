@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  thongtincongviec_id: 1
+  hovaten: MyString
+  sodienthoai: MyString
+  email: MyString
+  vitricongviec_id: 1
+  filedinhkem: MyString
+
+two:
+  thongtincongviec_id: 1
+  hovaten: MyString
+  sodienthoai: MyString
+  email: MyString
+  vitricongviec_id: 1
+  filedinhkem: MyString

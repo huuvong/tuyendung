@@ -1,0 +1,2 @@
+module DiadiemsHelper
+end
