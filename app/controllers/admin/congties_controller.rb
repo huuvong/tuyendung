@@ -29,7 +29,7 @@ class Admin::CongtiesController < ApplicationController
 
     respond_to do |format|
       if @congty.save
-        format.html { redirect_to [:admin, @congty], notice: 'Congty was successfully created.' }
+        format.html { redirect_to admin_congties_url, notice: 'Congty was successfully created.' }
         format.json { render :show, status: :created, location: @congty }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::CongtiesController < ApplicationController
   def update
     respond_to do |format|
       if @congty.update(congty_params)
-        format.html { redirect_to [:admin, @congty], notice: 'Congty was successfully updated.' }
+        format.html { redirect_to edit_admin_congty_path(@congty), notice: 'Congty was successfully updated.' }
         format.json { render :show, status: :ok, location: @congty }
       else
         format.html { render :edit }

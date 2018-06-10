@@ -1,5 +1,12 @@
-<h5>New Thongtincongviec</h5>
+<div class="panel panel-flat">
+  <div class="panel-heading">
+    <h1 class="panel-title">Tạo mới thông tin công việc</h1>
+  </div>
+  <div class="panel-body">
+    <%= render 'form', thongtincongviec: @thongtincongviec %>
+    <%= link_to 'Back', admin_thongtincongviecs_path %>
+  </div>
 
-<%= render 'form', thongtincongviec: @thongtincongviec %>
+</div>
 
-<%= link_to 'Back', thongtincongviecs_path %>
+

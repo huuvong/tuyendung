@@ -29,7 +29,7 @@ class Admin::DiadiemsController < ApplicationController
 
     respond_to do |format|
       if @diadiem.save
-        format.html { redirect_to [:admin, @diadiem], notice: 'Diadiem was successfully created.' }
+        format.html { redirect_to admin_diadiems_url, notice: 'Diadiem was successfully created.' }
         format.json { render :show, status: :created, location: @diadiem }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::DiadiemsController < ApplicationController
   def update
     respond_to do |format|
       if @diadiem.update(diadiem_params)
-        format.html { redirect_to [:admin, @diadiem], notice: 'Diadiem was successfully updated.' }
+        format.html { redirect_to edit_admin_diadiem_path(@diadiem), notice: 'Diadiem was successfully updated.' }
         format.json { render :show, status: :ok, location: @diadiem }
       else
         format.html { render :edit }

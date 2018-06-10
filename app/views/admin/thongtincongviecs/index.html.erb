@@ -1,32 +1,45 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+    <span class="text-semibold"><%= notice %></span>
+  </div>
+<% end %>
 
-<h1>Thongtincongviecs</h1>
+<div class="panel panel-flat">
+  <div class="panel-heading">
 
-<table class="table table-hover">
-  <thead>
+
+    <div class="col-md-9">
+      <h2 class="panel-title">Thông tin công việc</h2>
+    </div>
+    <div class="col-md-3">
+      <%= link_to 'Tạo mới', new_admin_thongtincongviec_path , class: 'btn btn-primary btn-lg', id: 'new'%>
+    </div>
+  </div>
+  <table class="table datatable-basic table-bordered">
+    <thead>
     <tr>
-      <th>Tencongviec</th>
-      <th>Congty</th>
-      <th>Vitricongviec</th>
-      <th>Diadiem</th>
-      <th>Sohoso</th>
-      <th>Mavitri</th>
-      <th>Thoihannophoso</th>
-      <th>Thongtinvitri</th>
-      <th>Mota</th>
-      <th>Yeucau</th>
-      <th>Chedoluong</th>
-      <th colspan="3"></th>
+      <th>Tên công việc</th>
+      <th>Công ty</th>
+      <th>Vị trí công việc</th>
+      <th>Địa điểm</th>
+      <th>Số hồ sơ</th>
+      <th>Mã vị trí</th>
+      <th>Thời hạn nộp hồ sơ</th>
+      <th>Thông tin vị trí</th>
+      <th>Mô tả</th>
+      <th>Yêu cầu</th>
+      <th>Chế độ lương</th>
+      <th class="text-center">Actions</th>
     </tr>
-  </thead>
-
-  <tbody>
+    </thead>
+    <tbody>
     <% @thongtincongviecs.each do |thongtincongviec| %>
       <tr>
         <td><%= thongtincongviec.tencongviec %></td>
         <td><%= thongtincongviec.congty.tencongty %></td>
-        <td><%= thongtincongviec.vitricongviec_id %></td>
-        <td><%= thongtincongviec.diadiem_id %></td>
+        <td><%= thongtincongviec.vitricongviec.tenvitri %></td>
+        <td><%= thongtincongviec.diadiem.tendiadiem %></td>
         <td><%= thongtincongviec.sohoso %></td>
         <td><%= thongtincongviec.mavitri %></td>
         <td><%= thongtincongviec.thoihannophoso %></td>
@@ -34,14 +47,23 @@
         <td><%= thongtincongviec.mota %></td>
         <td><%= thongtincongviec.yeucau %></td>
         <td><%= thongtincongviec.chedoluong %></td>
-        <td><%= link_to 'Show', [:admin, thongtincongviec] %></td>
-        <td><%= link_to 'Edit', edit_admin_thongtincongviec_path(thongtincongviec) %></td>
-        <td><%= link_to 'Destroy', [:admin, thongtincongviec], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-center">
+          <ul class="icons-list">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-menu9"></i>
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-right">
+                <!--              <li><%#= link_to 'Show', [:admin, vitricongviec] %></li>-->
+                <li><%= link_to 'Edit', edit_admin_thongtincongviec_path(thongtincongviec) %></li>
+                <li><%= link_to 'Destroy', [:admin, thongtincongviec], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </li>
+          </ul>
+        </td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<%= collection_select(:thongtincongviec, :congty_id, Congty.all, :id, :tencongty, promt: true) %>
-<br>
-
-<%= link_to 'New Thongtincongviec', new_admin_thongtincongviec_path %>
+    </tbody>
+  </table>
+</div>

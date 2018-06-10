@@ -1,4 +1,4 @@
-<%= form_with(model: thongtincongviec, local: true) do |form| %>
+<%= form_with(model: [:admin, thongtincongviec], local: true, class: "form-horizontal") do |form| %>
   <% if thongtincongviec.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(thongtincongviec.errors.count, "error") %> prohibited this thongtincongviec from being saved:</h2>
@@ -11,67 +11,76 @@
     </div>
   <% end %>
 
-  <div class="field">
-  <%= form.label :tencongviec %>
-    
+  <fieldset class="content-group">
+    <div class="form-group">
+      <%= form.label :tencongviec , "Tên công việc",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :tencongviec, id: :thongtincongviec_tencongviec, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :congty_id , "Công ty",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.collection_select :congty_id, Congty.all, :id, :tencongty, {prompt: true}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :vitricongviec_id , "Vị trí",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.collection_select :vitricongviec_id, Vitricongviec.all, :id, :tenvitri, {prompt: true}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :diadiem_id , "Địa điểm",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.collection_select :diadiem_id, Diadiem.all, :id, :tendiadiem, {prompt: true}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :sohoso , "Số hồ sơ",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :sohoso, id: :thongtincongviec_sohoso, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :mavitri , "Mã vị trí",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :mavitri, id: :thongtincongviec_mavitri, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :thoihannophoso , "Thờí hạn nộp hồ sơ",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.date_select :thoihannophoso, id: :thongtincongviec_thoihannophoso, class: 'datepicker' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :thongtinvitri , "Thông tin vị trí",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :thongtinvitri, id: :thongtincongviec_thongtinvitri, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :mota , "Mô tả",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_area :mota, id: :thongtincongviec_mota, cols: 5, rows: 5, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :yeucau , "Yêu cầu",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_area :yeucau, id: :thongtincongviec_yeucau, cols: 5, rows: 5, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :chedoluong , "Chế độ lương",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_area :chedoluong, id: :thongtincongviec_chedoluong, cols: 5, rows: 5, class: "form-control"%>
+      </div>
+    </div>
 
-
-    <%= form.text_field :tencongviec, id: :thongtincongviec_tencongviec %>
-  </div>
-
-  <div class="field">
-    <%= form.label :congty_id %>
-     <%= form.collection_select(:congty_id, Congty.all, :id, :tencongty, promt: true) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vitricongviec_id %>
-       <%= form.collection_select(:vitricongviec_id, Vitricongviec.all, :id, :tenvitri, promt: true) %>
- 
-  </div>
-
-  <div class="field">
-    <%= form.label :diadiem_id %>
-     <%= form.collection_select(:diadiem_id, Diadiem.all, :id, :tendiadiem, promt: true) %>
-
-  </div>
-
-  <div class="field">
-    <%= form.label :sohoso %>
-    <%= form.text_field :sohoso, id: :thongtincongviec_sohoso %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mavitri %>
-    <%= form.text_field :mavitri, id: :thongtincongviec_mavitri %>
-  </div>
-
-  <div class="field">
-    <%= form.label :thoihannophoso %>
-    <%= form.date_select :thoihannophoso, id: :thongtincongviec_thoihannophoso %>
-  </div>
-
-  <div class="field">
-    <%= form.label :thongtinvitri %>
-    <%= form.text_field :thongtinvitri, id: :thongtincongviec_thongtinvitri %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mota %>
-    <%= form.text_field :mota, id: :thongtincongviec_mota %>
-  </div>
-
-  <div class="field">
-    <%= form.label :yeucau %>
-    <%= form.text_field :yeucau, id: :thongtincongviec_yeucau %>
-  </div>
-
-  <div class="field">
-    <%= form.label :chedoluong %>
-    <%= form.text_field :chedoluong, id: :thongtincongviec_chedoluong %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  </fieldset>
+  <div class="actions text-right">
+    <%= form.submit 'Submit', class: 'btn btn-primary'%>
   </div>
 <% end %>

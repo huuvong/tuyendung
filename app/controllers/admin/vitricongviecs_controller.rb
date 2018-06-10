@@ -29,7 +29,7 @@ class Admin::VitricongviecsController < ApplicationController
 
     respond_to do |format|
       if @vitricongviec.save
-        format.html { redirect_to [:admin, @vitricongviec], notice: 'Vitricongviec was successfully created.' }
+        format.html { redirect_to admin_vitricongviecs_url, notice: 'Vitricongviec was successfully created.' }
         format.json { render :show, status: :created, location: @vitricongviec }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::VitricongviecsController < ApplicationController
   def update
     respond_to do |format|
       if @vitricongviec.update(vitricongviec_params)
-        format.html { redirect_to [:admin, @vitricongviec], notice: 'Vitricongviec was successfully updated.' }
+        format.html { redirect_to edit_admin_vitricongviec_path(@vitricongviec), notice: 'Vitricongviec was successfully updated.' }
         format.json { render :show, status: :ok, location: @vitricongviec }
       else
         format.html { render :edit }

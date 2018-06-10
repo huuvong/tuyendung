@@ -29,7 +29,7 @@ class Admin::ThongtincongviecsController < ApplicationController
 
     respond_to do |format|
       if @thongtincongviec.save
-        format.html { redirect_to [:admin, @thongtincongviec], notice: 'Thongtincongviec was successfully created.' }
+        format.html { redirect_to admin_thongtincongviecs_url, notice: 'Thongtincongviec was successfully created.' }
         format.json { render :show, status: :created, location: @thongtincongviec }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::ThongtincongviecsController < ApplicationController
   def update
     respond_to do |format|
       if @thongtincongviec.update(thongtincongviec_params)
-        format.html { redirect_to [:admin, @thongtincongviec], notice: 'Thongtincongviec was successfully updated.' }
+        format.html { redirect_to edit_admin_thongtincongviec_path(@thongtincongviec), notice: 'Thongtincongviec was successfully updated.' }
         format.json { render :show, status: :ok, location: @thongtincongviec }
       else
         format.html { render :edit }

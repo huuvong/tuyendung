@@ -54,3 +54,4 @@ gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 gem 'themify-icons-rails' , github: 'scratch-soft/themify-icons-rails'
+gem 'devise'

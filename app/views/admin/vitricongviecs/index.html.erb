@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+    <span class="text-semibold"><%= notice %></span>
+  </div>
+<% end %>
 
 <div class="panel panel-flat">
   <div class="panel-heading">
