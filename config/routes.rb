@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 #   # resources :thongtincongviecs
 #   # resources :diadiems
 #   resources :vitricongviecs
-#   # resources :thongtincanhans
+  resources :thongtincanhans
 #   # resources :congties
 #   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 root :to => 'home#index'
@@ -36,6 +36,7 @@ root :to => 'home#index'
           resources :congties
           resources :diadiems
           resources :thongtincongviecs
+          resources :thongtincanhans
     end
 end
 

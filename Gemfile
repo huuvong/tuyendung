@@ -51,7 +51,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 
 gem 'bootstrap-sass'
-
-gem 'jquery-rails'
 gem 'themify-icons-rails' , github: 'scratch-soft/themify-icons-rails'
-gem 'devise'
+gem 'carrierwave'

@@ -1,0 +1,59 @@
+<% if notice.present? %>
+  <div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+    <span class="text-semibold"><%= notice %></span>
+  </div>
+<% end %>
+
+<div class="panel panel-flat">
+  <div class="panel-heading">
+
+
+    <div class="col-md-9">
+      <h2 class="panel-title">Thông tin tuyển dụng</h2>
+    </div>
+    <div class="col-md-3">
+      <%= link_to 'Tạo mới', new_admin_thongtincanhan_path , class: 'btn btn-primary btn-lg', id: 'new'%>
+    </div>
+  </div>
+  <table class="table datatable-basic table-bordered">
+    <thead>
+    <tr>
+      <th>Thông tin công việc</th>
+      <th>Họ và tên</th>
+      <th>Số điện thoại</th>
+      <th>Email</th>
+      <th>Vị trí công việc</th>
+      <th>File đính kèm</th>
+      <th class="text-center">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @thongtincanhans.each do |thongtincanhan| %>
+      <tr>
+        <td><%= thongtincanhan.thongtincongviec.tencongviec %></td>
+        <td><%= thongtincanhan.hovaten %></td>
+        <td><%= thongtincanhan.sodienthoai %></td>
+        <td><%= thongtincanhan.email %></td>
+        <td><%= thongtincanhan.vitricongviec.tenvitri %></td>
+        <td><%= link_to thongtincanhan.filedinhkem_identifier, thongtincanhan.filedinhkem_url %></td>
+        <td class="text-center">
+          <ul class="icons-list">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="icon-menu9"></i>
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><%= link_to 'Edit', edit_admin_thongtincanhan_path(thongtincanhan)  %></li>
+                <li><%= link_to 'Destroy', [:admin, thongtincanhan], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+

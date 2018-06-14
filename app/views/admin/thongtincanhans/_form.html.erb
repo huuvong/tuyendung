@@ -1,0 +1,62 @@
+<%= form_with(model: [:admin, thongtincanhan], local: true, class: "form-horizontal") do |form| %>
+  <% if thongtincanhan.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger alert-styled-left alert-bordered">
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+        <span class="text-semibold"><%= pluralize(thongtincanhan.errors.count, "error") %> prohibited this thongtincanhan from being saved:</span>
+      </div>
+
+
+      <% thongtincanhan.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger no-border">
+          <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+
+  <fieldset class="content-group">
+    <div class="form-group">
+      <%= form.label :thongtincongviec_id , "Công việc",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.collection_select :thongtincongviec_id, Thongtincongviec.all, :id, :tencongviec, {prompt: true}, {class: "form-control"} %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :hovaten , "Họ và tên",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :hovaten, id: :thongtincanhan_hovaten, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :sodienthoai , "Số điện thoại",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :sodienthoai, id: :thongtincanhan_sodienthoai, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :email , "Email",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.text_field :email, id: :thongtincanhan_email, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :vitricongviec_id , "Vị trí công việc",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.collection_select :vitricongviec_id, Vitricongviec.all, :id, :tenvitri, {prompt: true}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :filedinhkem , "File đính kèm",class: "control-label col-lg-2"%>
+      <div class="col-lg-10">
+        <%= form.file_field :filedinhkem, id: :thongtincanhan_filedinhkem, class: "form-control"%>
+      </div>
+    </div>
+  </fieldset>
+  <div class="actions text-right">
+    <%= form.submit 'Submit', class: 'btn btn-primary'%>
+  </div>
+<% end %>
