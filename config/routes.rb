@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   # get 'home/index'
 #
 #   # resources :users
-#   # resources :thongtincongviecs
+  resources :thongtincongviecs, only: [:index, :show]
 #   # resources :diadiems
 #   resources :vitricongviecs
-  resources :thongtincanhans
+#   resources :thongtincanhans
 #   # resources :congties
 #   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 root :to => 'home#index'

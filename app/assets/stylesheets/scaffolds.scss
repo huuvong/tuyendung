@@ -82,3 +82,7 @@ div {
 label {
   display: block;
 }
+
+.navigation li > .has-ul:after{
+  content: none;
+}

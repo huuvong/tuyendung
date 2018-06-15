@@ -1,47 +1,81 @@
-<p id="notice"><%= notice %></p>
+<!-- page content wrapper -->
+<div class="page-content-wrap">
+  <!-- page content holder -->
+  <div class="page-content-holder">
 
-<h1>Thongtincongviecs</h1>
+    <div class="panel panel-flat">
+      <div class="panel-heading">
+        <h5 class="panel-title">Danh sách tuyển dụng</h5>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Tencongviec</th>
-      <th>Congty</th>
-      <th>Vitricongviec</th>
-      <th>Diadiem</th>
-      <th>Sohoso</th>
-      <th>Mavitri</th>
-      <th>Thoihannophoso</th>
-      <th>Thongtinvitri</th>
-      <th>Mota</th>
-      <th>Yeucau</th>
-      <th>Chedoluong</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <%= form_with class: "form-horizontal" do |form| %>
+          <fieldset class="content-group">
+          <div class="form-group">
+            <%= form.label :congty_id , "Công ty",class: "control-label col-lg-2"%>
+            <div class="col-lg-10">
+            <%= form.collection_select :congty_id, Congty.all, :id, :tencongty, {prompt: true}, {class: "form-control"} %>
+            </div>
+          </div>
+          <div class="form-group">
+          <%= form.label :diadiem_id , "Địa điểm",class: "control-label col-lg-2"%>
+            <div class="col-lg-10">
+          <%= form.collection_select :diadiem_id, Diadiem.all, :id, :tendiadiem, {prompt: true}, {class: "form-control"} %>
+            </div>
+          </div>
+          <div class="form-group">
+          <%= form.label :vitricongviec_id , "Vị trí công việc",class: "control-label col-lg-2"%>
+            <div class="col-lg-10">
+          <%= form.collection_select :vitricongviec_id, Vitricongviec.all, :id, :tenvitri, {prompt: true}, {class: "form-control"} %>
+            </div>
+          </div>
+          </fieldset>
+          <%= button_tag(type: 'submit', class: "btn btn-info ") do %>
+            <i class="icon-search4"></i> <span>Search</span>
+          <% end %>
 
-  <tbody>
-    <% @thongtincongviecs.each do |thongtincongviec| %>
-      <tr>
-        <td><%= thongtincongviec.tencongviec %></td>
-        <td><%= thongtincongviec.congty.tencongty %></td>
-        <td><%= thongtincongviec.vitricongviec.tenvitri %></td>
-        <td><%= thongtincongviec.diadiem.tendiadiem %></td>
-        <td><%= thongtincongviec.sohoso %></td>
-        <td><%= thongtincongviec.mavitri %></td>
-        <td><%= thongtincongviec.thoihannophoso %></td>
-        <td><%= thongtincongviec.thongtinvitri %></td>
-        <td><%= thongtincongviec.mota %></td>
-        <td><%= thongtincongviec.yeucau %></td>
-        <td><%= thongtincongviec.chedoluong %></td>
-        <td><%= link_to 'Show', thongtincongviec %></td>
-        <td><%= link_to 'Edit', edit_thongtincongviec_path(thongtincongviec) %></td>
-        <td><%= link_to 'Destroy', thongtincongviec, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= collection_select(:thongtincongviec, :congty_id, Congty.all, :id, :tencongty, promt: true) %>
-<br>
+        <% end %>
+      </div>
 
-<%= link_to 'New Thongtincongviec', new_thongtincongviec_path %>
+      <table class="table datatable-basic table-bordered">
+        <thead>
+        <tr>
+          <th>Actions</th>
+          <th>Tên công việc</th>
+          <th>Công ty</th>
+          <th>Vị trí công việc</th>
+          <th>Địa điểm</th>
+          <th>Thời hạn nộp hồ sơ</th>
+          <th>Thông tin vị trí</th>
+          <th>Mô tả</th>
+          <th>Yêu cầu</th>
+          <th>Chế độ lương</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @thongtincongviecs.each do |thongtincongviec| %>
+        <tr>
+          <td class="text-center">
+            <%= link_to 'Show', thongtincongviec %>
+          </td>
+          <td><%= thongtincongviec.tencongviec %></td>
+          <td><%= thongtincongviec.congty.tencongty %></td>
+          <td><%= thongtincongviec.vitricongviec.tenvitri %></td>
+          <td><%= thongtincongviec.diadiem.tendiadiem %></td>
+          <td><%= thongtincongviec.thoihannophoso %></td>
+          <td><%= thongtincongviec.thongtinvitri %></td>
+          <td><%= thongtincongviec.mota %></td>
+          <td><%= thongtincongviec.yeucau %></td>
+          <td><%= thongtincongviec.chedoluong %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- ./page content holder -->
+</div>
+<!-- ./page content wrapper -->
+
+
+
+
+

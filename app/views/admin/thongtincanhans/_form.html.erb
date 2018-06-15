@@ -53,6 +53,9 @@
       <%= form.label :filedinhkem , "File đính kèm",class: "control-label col-lg-2"%>
       <div class="col-lg-10">
         <%= form.file_field :filedinhkem, id: :thongtincanhan_filedinhkem, class: "form-control"%>
+        <% if thongtincanhan.filedinhkem? %>
+          <%= form.label :filename, thongtincanhan.filedinhkem_identifier %>
+        <% end %>
       </div>
     </div>
   </fieldset>
