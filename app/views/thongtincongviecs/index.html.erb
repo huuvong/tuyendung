@@ -7,7 +7,7 @@
       <div class="panel-heading">
         <h5 class="panel-title">Danh sách tuyển dụng</h5>
 
-        <%= form_with class: "form-horizontal" do |form| %>
+        <%= form_with url: thongtincongviecs_path, method: :get, class: "form-horizontal" do |form| %>
           <fieldset class="content-group">
           <div class="form-group">
             <%= form.label :congty_id , "Công ty",class: "control-label col-lg-2"%>
@@ -38,35 +38,32 @@
       <table class="table datatable-basic table-bordered">
         <thead>
         <tr>
-          <th>Actions</th>
+          <th class="text-center">STT</th>
+          <th class="text-center">Actions</th>
           <th>Tên công việc</th>
           <th>Công ty</th>
           <th>Vị trí công việc</th>
           <th>Địa điểm</th>
           <th>Thời hạn nộp hồ sơ</th>
           <th>Thông tin vị trí</th>
-          <th>Mô tả</th>
-          <th>Yêu cầu</th>
-          <th>Chế độ lương</th>
         </tr>
         </thead>
-        <tbody>
-        <% @thongtincongviecs.each do |thongtincongviec| %>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'Show', thongtincongviec %>
-          </td>
-          <td><%= thongtincongviec.tencongviec %></td>
-          <td><%= thongtincongviec.congty.tencongty %></td>
-          <td><%= thongtincongviec.vitricongviec.tenvitri %></td>
-          <td><%= thongtincongviec.diadiem.tendiadiem %></td>
-          <td><%= thongtincongviec.thoihannophoso %></td>
-          <td><%= thongtincongviec.thongtinvitri %></td>
-          <td><%= thongtincongviec.mota %></td>
-          <td><%= thongtincongviec.yeucau %></td>
-          <td><%= thongtincongviec.chedoluong %></td>
-        </tr>
-        <% end %>
+        <tbody id="thongtincongviecs">
+        <%# @thongtincongviecs.each do |thongtincongviec| %>
+<!--        <tr>-->
+<!--          <td class="text-center">-->
+            <%#= link_to 'Show', thongtincongviec %>
+<!--          </td>-->
+<!--          <td><%#= thongtincongviec.tencongviec %></td>-->
+<!--          <td><%#= thongtincongviec.congty.tencongty %></td>-->
+<!--          <td><%#= thongtincongviec.vitricongviec.tenvitri %></td>-->
+<!--          <td><%#= thongtincongviec.diadiem.tendiadiem %></td>-->
+<!--          <td><%#= thongtincongviec.thoihannophoso %></td>-->
+<!--          <td><%#= thongtincongviec.thongtinvitri %></td>-->
+<!--        </tr>-->
+        <%# end %>
+
+        <%= render @thongtincongviecs %>
         </tbody>
       </table>
     </div>
@@ -74,8 +71,6 @@
   <!-- ./page content holder -->
 </div>
 <!-- ./page content wrapper -->
-
-
 
 
 

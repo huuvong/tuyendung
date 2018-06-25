@@ -4,7 +4,11 @@ class ThongtincongviecsController < ApplicationController
   # GET /thongtincongviecs
   # GET /thongtincongviecs.json
   def index
-    @thongtincongviecs = Thongtincongviec.all
+    if params[:congty_id] and params[:diadiem_id] and params[:vitricongviec_id]
+      @thongtincongviecs = Thongtincongviec.search(params[:congty_id], params[:diadiem_id], params[:vitricongviec_id])
+    else
+      @thongtincongviecs = Thongtincongviec.all
+    end
   end
 
   # GET /thongtincongviecs/1

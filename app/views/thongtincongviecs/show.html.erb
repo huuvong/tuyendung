@@ -1,59 +1,74 @@
-<p id="notice"><%= notice %></p>
+<!-- page content wrapper -->
+<div class="page-content-wrap">
+  <!-- page content holder -->
+  <div class="page-content-holder">
+    <div class="panel invoice-grid">
+      <div class="panel-body">
+        <div class="row">
 
-<p>
-  <strong>Tencongviec:</strong>
-  <%= @thongtincongviec.tencongviec %>
-</p>
+            <h5 class="text-semibold no-margin-top"><b>Thông tin vị trí</b></h5>
+            <table class="table">
+              <tbody>
+              <tr>
+                <td style="width: 20%;">Công ty</td>
+                <td><%= @thongtincongviec.congty.tencongty %></td>
+              </tr>
+              <tr>
+                <td style="width: 20%;">Địa điểm</td>
+                <td><%= @thongtincongviec.diadiem.tendiadiem %></td>
+              </tr>
+              <tr>
+                <td style="width: 20%;">Vị trí công việc</td>
+                <td><%= @thongtincongviec.vitricongviec.tenvitri %></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
 
-<p>
-  <strong>Congty:</strong>
-  <%= @thongtincongviec.congty.tencongty %>
-</p>
+      </div>
 
-<p>
-  <strong>Vitricongviec:</strong>
-  <%= @thongtincongviec.vitricongviec.tenvitri %>
-</p>
+    </div>
+    <div class="panel invoice-grid">
+      <div class="panel-body">
+        <div class="row">
 
-<p>
-  <strong>Diadiem:</strong>
-  <%= @thongtincongviec.diadiem.tendiadiem %>
-</p>
+          <h5 class="text-semibold no-margin-top"><b>Mô tả</b></h5>
+          <table class="table">
+            <tbody>
+            <tr>
+              <td style="width: 20%;">Thông tin vị trí</td>
+              <td><%= @thongtincongviec.thongtinvitri %></td>
+            </tr>
+            <tr>
+              <td style="width: 20%;">Mô tả</td>
+              <td><%= @thongtincongviec.mota %></td>
+            </tr>
+            <tr>
+              <td style="width: 20%;">Yêu cầu</td>
+              <td><%= @thongtincongviec.yeucau %></td>
+            </tr>
+            <tr>
+              <td style="width: 20%;">Chế độ lương</td>
+              <td><%= @thongtincongviec.chedoluong %></td>
+            </tr>
+            <tr>
+              <td style="width: 20%;">Thời hạn nộp hồ sơ</td>
+              <td><%= @thongtincongviec.thoihannophoso %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
 
-<p>
-  <strong>Sohoso:</strong>
-  <%= @thongtincongviec.sohoso %>
-</p>
+      </div>
 
-<p>
-  <strong>Mavitri:</strong>
-  <%= @thongtincongviec.mavitri %>
-</p>
+    </div>
+    <div class="row">
+      <div class="col-xs-6"><%= link_to '<< Back', thongtincongviecs_path %></div>
+      <div class="text-right col-xs-6">
+        <button type='button' class='btn bg-teal-400'><b>Nộp hồ sơ</b></button>
+      </div>
+    </div>
 
-<p>
-  <strong>Thoihannophoso:</strong>
-  <%= @thongtincongviec.thoihannophoso %>
-</p>
+  </div>
 
-<p>
-  <strong>Thongtinvitri:</strong>
-  <%= @thongtincongviec.thongtinvitri %>
-</p>
-
-<p>
-  <strong>Mota:</strong>
-  <%= @thongtincongviec.mota %>
-</p>
-
-<p>
-  <strong>Yeucau:</strong>
-  <%= @thongtincongviec.yeucau %>
-</p>
-
-<p>
-  <strong>Chedoluong:</strong>
-  <%= @thongtincongviec.chedoluong %>
-</p>
-
-<%= link_to 'Edit', edit_thongtincongviec_path(@thongtincongviec) %> |
-<%= link_to 'Back', thongtincongviecs_path %>
+</div>
