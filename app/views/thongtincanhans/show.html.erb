@@ -1,34 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Thongtincongviec:</strong>
-  <%= @thongtincanhan.thongtincongviec_id %>
-</p>
-
-<p>
-  <strong>Hovaten:</strong>
-  <%= @thongtincanhan.hovaten %>
-</p>
-
-<p>
-  <strong>Sodienthoai:</strong>
-  <%= @thongtincanhan.sodienthoai %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @thongtincanhan.email %>
-</p>
-
-<p>
-  <strong>Vitricongviec:</strong>
-  <%= @thongtincanhan.vitricongviec_id %>
-</p>
-
-<p>
-  <strong>Filedinhkem:</strong>
-  <%= @thongtincanhan.filedinhkem %>
-</p>
-
-<%= link_to 'Edit', edit_thongtincanhan_path(@thongtincanhan) %> |
-<%= link_to 'Back', thongtincanhans_path %>
+<% if notice.present? %>
+  <div class="alert alert-success alert-styled-left alert-arrow-left alert-bordered">
+    <button type="button" class="close" data-dismiss="alert"><span>&times;</span><span class="sr-only">Close</span></button>
+    <span class="text-semibold"><%= notice %></span>
+  </div>
+<% end %>

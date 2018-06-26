@@ -1,4 +1,4 @@
-<%= form_with(model: thongtincanhan, local: true) do |form| %>
+<%= form_with(model: thongtincanhan, local: true, class: "form-horizontal") do |form| %>
   <% if thongtincanhan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(thongtincanhan.errors.count, "error") %> prohibited this thongtincanhan from being saved:</h2>
@@ -10,38 +10,43 @@
       </ul>
     </div>
   <% end %>
+  <fieldset class="panel-body pb-10">
+    <div class="field">
+    <h6 class="text-semibold content-group">Thông tin cá nhân</h6>
+    </div>
+    <div class="field">
+    <%= form.label :hovaten, class: "control-label" do %>
+      Họ và tên
+      <span class="text-danger">*</span>
+      <% end %>
+    <%= form.text_field :hovaten, id: :thongtincanhan_hovaten, class: "form-control", required: true %>
+    </div>
+    <div class="field">
+      <%= form.label :sodienthoai, class: "control-label" do %>
+        Số điện thoại
+        <span class="text-danger">*</span>
+      <% end %>
+      <%= form.text_field :sodienthoai, id: :thongtincanhan_sodienthoai, class: "form-control", required: true %>
+    </div>
+    <div class="field">
+      <%= form.label :email, class: "control-label" do %>
+        Email
+        <span class="text-danger">*</span>
+      <% end %>
+      <%= form.text_field :email, id: :thongtincanhan_email, class: "form-control", required: true %>
+    </div>
+    <div class="field">
+      <%= form.label :filedinhkem, class: "control-label display-block" do %>
+        File CV
+        <span class="text-danger">*</span>
+      <% end %>
+      <%= form.file_field :filedinhkem, id: :thongtincanhan_filedinhkem, class: "form-control", required: true%>
+    </div>
+    <%= form.hidden_field :thongtincongviec_id, value: @thongtincongviec.id %>
+    <%= form.hidden_field :vitricongviec_id, value: @thongtincongviec.vitricongviec_id %>
 
-  <div class="field">
-    <%= form.label :thongtincongviec_id %>
-    <%= form.collection_select(:thongtincongviec_id, Thongtincongviec.all, :id, :tencongviec, promt: true) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hovaten %>
-    <%= form.text_field :hovaten, id: :thongtincanhan_hovaten %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sodienthoai %>
-    <%= form.text_field :sodienthoai, id: :thongtincanhan_sodienthoai %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :thongtincanhan_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vitricongviec_id %>
-     <%= form.collection_select(:vitricongviec_id, Vitricongviec.all, :id, :tenvitri, promt: true) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :filedinhkem %>
-    <%= form.text_field :filedinhkem, id: :thongtincanhan_filedinhkem %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  </fieldset>
+  <div class="actions text-right">
+    <%= form.submit 'Gửi hồ sơ', class: 'btn btn-primary'%>
   </div>
 <% end %>

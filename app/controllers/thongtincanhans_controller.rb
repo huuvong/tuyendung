@@ -14,6 +14,7 @@ class ThongtincanhansController < ApplicationController
 
   # GET /thongtincanhans/new
   def new
+    @thongtincongviec = Thongtincongviec.find(params[:id])
     @thongtincanhan = Thongtincanhan.new
   end
 
@@ -25,15 +26,25 @@ class ThongtincanhansController < ApplicationController
   # POST /thongtincanhans.json
   def create
     @thongtincanhan = Thongtincanhan.new(thongtincanhan_params)
+    if @thongtincanhan.save
+      flash[:notice] = 'Hồ sơ đã gửi thành công'
+      redirect_to :action => 'success'
+    end
 
-    respond_to do |format|
-      if @thongtincanhan.save
-        format.html { redirect_to @thongtincanhan, notice: 'Thongtincanhan was successfully created.' }
-        format.json { render :show, status: :created, location: @thongtincanhan }
-      else
-        format.html { render :new }
-        format.json { render json: @thongtincanhan.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    #   if @thongtincanhan.save
+    #     format.html { redirect_to :action => 'success', notice: 'Thongtincanhan was successfully created.' }
+    #     # format.json { render :show, status: :created, location: @thongtincanhan }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @thongtincanhan.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
+
+  def success
+    if !notice
+      redirect_to root_path
     end
   end
 

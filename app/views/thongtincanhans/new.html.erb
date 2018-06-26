@@ -1,5 +1,33 @@
-<h1>New Thongtincanhan</h1>
 
-<%= render 'form', thongtincanhan: @thongtincanhan %>
 
-<%= link_to 'Back', thongtincanhans_path %>
+
+<!-- page content wrapper -->
+<div class="page-content-wrap">
+  <!-- page content holder -->
+  <div class="page-content-holder">
+    <!-- Apply form -->
+    <div class="container-detached">
+      <div class="content-detached">
+
+    <div class="panel panel-flat">
+      <div class="panel-body no-padding-bottom">
+        <div class="media stack-media-on-mobile text-left">
+          <div class="media-body">
+            <h5 class="media-heading text-semibold">
+              <%= link_to @thongtincongviec.tencongviec, @thongtincongviec %>
+            </h5>
+
+            <ul class="list-inline list-inline-separate text-muted no-margin">
+              <li><%= @thongtincongviec.congty.tencongty %>, <%= @thongtincongviec.diadiem.tendiadiem %></li>
+              <li><%= @thongtincongviec.thoihannophoso %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <%= render 'form', thongtincanhan: @thongtincanhan %>
+    </div>
+      </div>
+    </div>
+    <!-- /apply form -->
+  </div>
+</div>
