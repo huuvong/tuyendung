@@ -1,4 +1,5 @@
 class Admin::ThongtincongviecsController < ApplicationController
+  before_action :authorize
   layout "admin"
   before_action :set_thongtincongviec, only: [:show, :edit, :update, :destroy]
 

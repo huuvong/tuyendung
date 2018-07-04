@@ -1,4 +1,5 @@
 class Admin::DiadiemsController < ApplicationController
+  before_action :authorize
   layout "admin"
   before_action :set_diadiem, only: [:show, :edit, :update, :destroy]
 

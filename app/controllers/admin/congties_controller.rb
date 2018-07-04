@@ -1,4 +1,5 @@
 class Admin::CongtiesController < ApplicationController
+  before_action :authorize
   layout "admin"
   before_action :set_congty, only: [:show, :edit, :update, :destroy]
 

@@ -1,4 +1,5 @@
 class Admin::VitricongviecsController < ApplicationController
+  before_action :authorize
   layout 'admin'
   before_action :set_vitricongviec, only: [:show, :edit, :update, :destroy]
 

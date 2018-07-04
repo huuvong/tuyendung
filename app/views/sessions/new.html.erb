@@ -1,28 +1,44 @@
-<div class="depot_form">
-    <% if flash[:alert] %>
-        <p id="notice"><%= flash[:alert] %></p>
-    <% end %>
+
+    <%# if flash[:alert] %>
+<!--        <p id="notice"><%#= flash[:alert] %></p>-->
+    <%# end %>
   
-    <% if notice %>
-        <p id="notice"><%= notice %></p>
-    <% end %>
+    <%# if notice %>
+<!--        <p id="notice"><%#= notice %></p>-->
+    <%# end %>
     <%= form_tag '/login' do %>
-        <fieldset>
-            <legend>Log In</legend>
-  
-            <div>
-                <label for="name">Name:</label>
-                <%= text_field_tag :name, params[:name] %>
-            </div>
-  
-            <div>
-                <label for="password">Password:</label>
-                <%= password_field_tag :password, params[:password] %>
-            </div>
-  
-            <div>
-                <%= submit_tag "Login" %>
-            </div>
-        </fieldset>
+      <div class="panel panel-body login-form">
+          <div class="text-center">
+            <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+            <h5 class="content-group">Login to your account <small class="display-block">Enter your credentials below</small></h5>
+          </div>
+
+        <div class="form-group has-feedback has-feedback-left">
+          <%= text_field_tag :name, params[:name], class: 'form-control', placeholder: "Username" %>
+          <div class="form-control-feedback">
+            <i class="icon-user text-muted"></i>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback has-feedback-left">
+          <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Password" %>
+          <div class="form-control-feedback">
+            <i class="icon-lock2 text-muted"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= submit_tag "Login", class: "btn btn-primary btn-block" do %>
+            <i class="icon-circle-right2 position-right"></i>
+          <% end %>
+        </div>
+        <div class="text-center">
+          <a href="login_password_recover.html">Forgot password?</a>
+        </div>
+
+      </div>
     <% end %>
-</div>
+
+
+
+
